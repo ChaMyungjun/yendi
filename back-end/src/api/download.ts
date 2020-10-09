@@ -1,4 +1,3 @@
-import { COPYFILE_EXCL } from 'constants';
 import Router from 'koa-router';
 import ytdl from 'ytdl-core';
 import fs from 'fs';
