@@ -1,8 +1,10 @@
-import Router from 'koa-router'
-import find from './search'
+import Router from 'koa-router';
+import search from './search';
+import download from './download';
 
-const api = new Router()
+const api = new Router();
 
-api.use('/search', find.routes())
+api.use('/download', download.routes());
+api.use('/search', search.routes());
 
-export default api
+export default api;
