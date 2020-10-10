@@ -18,7 +18,8 @@ download.get('/mp4', async (ctx: any) => {
       ctx.set('Content-Disposition', 'attachment; filename="video.mp4"');
 
       ytdl(URL, {
-        filter: (format) => format.container === 'ts',
+        filter: (format) => format.container === 'mp4',
+        quality: 'highest',
       }).pipe(fs.createWriteStream('video.mp4'));
 
       console.log(success);
@@ -44,6 +45,7 @@ download.get('/mp3', async (ctx: any) => {
 
       ytdl(URL, {
         filter: (format) => format.container === 'mp4',
+        quality: 'highestaudio',
       }).pipe(fs.createWriteStream('audio.mp3'));
 
       console.log(success);
