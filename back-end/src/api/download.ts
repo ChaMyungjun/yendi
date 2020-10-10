@@ -4,15 +4,17 @@ import fs from 'fs';
 
 const download = new Router();
 
-download.get('/mp3/:context', async (ctx: any) => {
+download.get('/:context', async (ctx: any) => {
   try {
     let URL = ctx.params;
 
     ctx.header('Content-Disposition', 'attachment; filename="video.mp3"');
 
     ytdl(URL, {
-      format: 'mp3'
-    }).pipe(ctx);
+      filter: (format) => format.container === 'mp4',
+    }).pipe(fs.createWriteStream('video.flv'));
+
+    console.log('Download Success');
   } catch (e) {
     console.log(e);
   }
