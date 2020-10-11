@@ -6,7 +6,7 @@ const download = new Router();
 
 //query getting
 
-download.get('/mp4', async (ctx: any) => {
+download.get('/mp4/', async (ctx: any) => {
   try {
     let { URL } = ctx.request.query;
     if (!URL) {
