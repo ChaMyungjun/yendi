@@ -17,13 +17,22 @@ export default class youtube {
   };
 
   @action.bound
-  download = async (title: any) => {
+  download_mp3 = async (title: any) => {
     const success = "Downloading Success";
     if (!title) {
       return null;
     } else {
       this.downloading = await downloaded.mp3(title);
-      (<any>this.downloading) = success;
     }
   };
+
+  @action.bound
+  download_mp4 = async (title: any) => {
+    const success = "Downloadin Success"
+    if(!title) {
+      return null
+    } else {
+      this.downloading = await downloaded.mp4(title)
+    }
+  }
 }
