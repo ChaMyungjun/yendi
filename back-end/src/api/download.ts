@@ -13,7 +13,7 @@ download.get('/mp4/', async (ctx: any) => {
       return null;
     } else {
       console.log(URL);
-      const success = 'success';
+      const success = 'Download Success Video';
 
       ctx.set('Content-Disposition', 'attachment; filename="video.mp4"');
 
@@ -39,7 +39,7 @@ download.get('/mp3', async (ctx: any) => {
       return null;
     } else {
       console.log(URL);
-      const success = 'success';
+      const success = 'Download Success Audio';
 
       ctx.set('Context-Disposition', 'attachment; filename="video.mp3"');
 
