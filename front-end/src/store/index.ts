@@ -22,6 +22,8 @@ export default class youtube {
     if (!title) {
       return null;
     } else {
+
+      //success mp3 string
       this.downloading = await downloaded.mp3(title);
     }
   };
@@ -32,6 +34,8 @@ export default class youtube {
     if(!title) {
       return null
     } else {
+
+      //success mp4 string
       this.downloading = await downloaded.mp4(title)
     }
   }
