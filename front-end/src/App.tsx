@@ -18,7 +18,7 @@ class App extends React.Component {
       <div>
         <SearchingAppbar handleChangeSearch={this.handleTitle} />
         {toJS(store).searching.length === 0 ? (
-          <Typography>Empty</Typography>
+          <Typography>가수 이름과 제목을 입력해 주세요</Typography>
         ) : (
           <SearchResult />
         )}
