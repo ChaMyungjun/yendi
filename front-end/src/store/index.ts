@@ -18,7 +18,7 @@ export default class youtube {
 
   @action.bound
   download_mp3 = async (title: any) => {
-    const success = "Downloading Success";
+    const success = "Downloading Success_mp4";
     if (!title) {
       return null;
     } else {
@@ -30,7 +30,7 @@ export default class youtube {
 
   @action.bound
   download_mp4 = async (title: any) => {
-    const success = "Downloadin Success"
+    const success = "Downloading Success_mp3"
     if(!title) {
       return null
     } else {
