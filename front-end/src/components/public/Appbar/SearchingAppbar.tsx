@@ -4,11 +4,12 @@ import { observer } from "mobx-react";
 import styles from "./SearchingAppbar.module.css";
 import SearchTitle from "../../search/searchTitle";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import {Link} from 'react-router-dom'
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#512da8",
+      main: "#1565c0",
     },
     secondary: {
       main: "#ff6e40",
@@ -42,18 +43,12 @@ class SearchingAppbar extends React.Component<TextProps, TextState> {
     return (
       <ThemeProvider theme={theme}>
         <div className={styles.form}>
-          <AppBar position="static">
+          <AppBar position="fixed" style = {{paddingBottom: "10rem"}}>
             <Toolbar className={styles.toolBar}>
-              <Typography
-                variant="h4"
-                component="h2"
-                noWrap
-                gutterBottom
-                className={styles.title}
-              >
+              <Link to = "/" className = {styles.title}>
                 Youtube Downloader
-              </Typography>
-              <SearchTitle handleTitleChange={this.props.handleChangeSearch} />
+              </Link>
+              {/* <SearchTitle handleTitleChange={this.props.handleChangeSearch} /> */}
             </Toolbar>
           </AppBar>
         </div>
