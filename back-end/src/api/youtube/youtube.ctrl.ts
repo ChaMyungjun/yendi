@@ -10,11 +10,11 @@ export const search = async (ctx: any, next: any) => {
     descrip: [],
   };
 
-  const { context } = ctx.params;
+  const { context } = ctx.params  ;
 
   if (!context) return (ctx.body = 'Empty Value');
 
-  const data = await ytsr
+  await ytsr
     .getFilters(context)
     .then(async (filters: any) => {
       const options = {
@@ -35,7 +35,7 @@ export const search = async (ctx: any, next: any) => {
       console.error(err);
     });
 
-  // console.log(result);
+  console.log(result);
 
   ctx.body = result;
   return result;
@@ -48,7 +48,7 @@ export const mp3 = async (ctx: any, next: any) => {
       return null;
     } else {
       console.log(URL);
-      const success = 'Download Success Audio';   
+      const success = 'Download Success Audio';
 
       ctx.set('Context-Disposition', 'attachment; filename="video.mp3"');
 
@@ -65,7 +65,7 @@ export const mp3 = async (ctx: any, next: any) => {
   } catch (e: any) {
     console.log(e);
   }
-}
+};
 
 export const mp4 = async (ctx: any, next: any) => {
   try {
@@ -92,4 +92,3 @@ export const mp4 = async (ctx: any, next: any) => {
     console.log(e);
   }
 };
-
