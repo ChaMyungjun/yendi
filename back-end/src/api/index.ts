@@ -1,10 +1,9 @@
 import Router from 'koa-router';
-import search from './youtube/search';
-import download from './youtube/download';
+import youtube from './youtube'
 
 const api = new Router();
 
-api.use('/download', download.routes());
-api.use('/search', search.routes());
+//api.use('/download', download.routes());
+api.use('/youtube', youtube.routes());
 
 export default api;
