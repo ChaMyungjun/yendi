@@ -1,6 +1,6 @@
 import Router from 'koa-router';
-import search from './search';
-import download from './download';
+import search from './youtube/search';
+import download from './youtube/download';
 
 const api = new Router();
 
