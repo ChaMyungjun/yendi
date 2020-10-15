@@ -1,8 +1,7 @@
 import { observable, action, toJS } from "mobx";
-import * as searched from "../lib/api/searching";
-import * as downloaded from "../lib/api/download";
+import * as youtube from "../lib/api/youtube";
 
-export default class youtube {
+export default class RootStore {
   @observable searching: Object = [];
   @observable downloading: Object = [];
 
@@ -11,7 +10,7 @@ export default class youtube {
     if (!search_t) {
       return null;
     } else {
-      this.searching = await searched.search(search_t);
+      this.searching = await youtube.search(search_t);
       (<any>this.searching) = toJS(this.searching);
     }
   };
@@ -24,7 +23,7 @@ export default class youtube {
     } else {
 
       //success mp3 string
-      this.downloading = await downloaded.mp3(title);
+      this.downloading = await youtube.mp3(title);
     }
   };
 
@@ -36,7 +35,7 @@ export default class youtube {
     } else {
 
       //success mp4 string
-      this.downloading = await downloaded.mp4(title)
+      this.downloading = await youtube.mp4(title)
     }
   }
 }
