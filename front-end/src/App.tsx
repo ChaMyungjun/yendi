@@ -2,7 +2,7 @@ import React from "react";
 import { toJS } from "mobx";
 import { inject, observer } from "mobx-react";
 import { Typography } from "@material-ui/core";
-import SearchingAppbar from "./components/public/Appbar/SearchingAppbar";
+import SearchingAppbar from "./components/common/Appbar/SearchingAppbar";
 import SearchResult from "./components/search/searchResult";
 
 @inject("store")
