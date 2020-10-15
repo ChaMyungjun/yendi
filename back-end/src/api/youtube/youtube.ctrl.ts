@@ -40,3 +40,56 @@ export const search = async (ctx: any, next: any) => {
   ctx.body = result;
   return result;
 };
+
+export const mp3 = async (ctx: any, next: any) => {
+  try {
+    let { URL } = ctx.request.query;
+    if (!URL) {
+      return null;
+    } else {
+      console.log(URL);
+      const success = 'Download Success Audio';   
+
+      ctx.set('Context-Disposition', 'attachment; filename="video.mp3"');
+
+      ytdl(URL, {
+        filter: (format) => format.container === 'mp4',
+        quality: 'highestaudio',
+      }).pipe(fs.createWriteStream('audio.mp3'));
+
+      console.log(success);
+
+      ctx.body = 'Download Success Audio';
+      return success;
+    }
+  } catch (e: any) {
+    console.log(e);
+  }
+}
+
+export const mp4 = async (ctx: any, next: any) => {
+  try {
+    let { URL } = ctx.request.query;
+    if (!URL) {
+      return null;
+    } else {
+      console.log(URL);
+      const success = 'Download Success Video';
+
+      ctx.set('Content-Disposition', 'attachment; filename="video.mp4"');
+
+      ytdl(URL, {
+        filter: (format) => format.container === 'mp4',
+        quality: 'highest',
+      }).pipe(fs.createWriteStream('video.mp4'));
+
+      console.log(success);
+
+      ctx.body = 'Download Success Video';
+      return success;
+    }
+  } catch (e: any) {
+    console.log(e);
+  }
+};
+

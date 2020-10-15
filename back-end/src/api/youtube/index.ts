@@ -3,8 +3,8 @@ import * as youtubeCtrl from './youtube.ctrl';
 
 const youtube = new Router();
 
-youtube.get('/:context', youtube.search);
-youtube.get('/', youtube.mp3);
-youtube.get('/', youtube.mp4);
+youtube.get('/:context', youtubeCtrl.search);
+youtube.get('/mp3', youtubeCtrl.mp3);
+youtube.get('/mp4', youtubeCtrl.mp4);
 
 export default youtube;
