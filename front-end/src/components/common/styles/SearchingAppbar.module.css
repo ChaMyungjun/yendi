@@ -12,13 +12,10 @@
 .title {
   font-family: "Balsamiq Sans", cursive;
   font-weight: bolder;
-  text-decoration: none;
   font-size: 1.5rem;
   font-weight: 800;
-  color: #c51162; 
-
-  flex-grow: 1;
-  align-self: flex-end;
+  text-decoration: none;
+  color: #c51162;
   padding-top: 2rem;
 }
 
