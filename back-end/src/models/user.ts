@@ -1,4 +1,3 @@
-require('dotenv').config();
 import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -11,15 +10,15 @@ const UserSchema = new Schema({
 
 UserSchema.methods.setPassword = async function (password: any) {
   const hash = await bcrypt.hash(password, 10);
-  this.handledPassword = hash;
+  this.hashedPassword = hash;
 };
 
-UserSchema.methods.checkPasword = async function (password: any) {
-  const result = await bcrypt.compare(password, this.handledPassword);
+UserSchema.methods.checkPassword = async function (password: any) {
+  const result = await bcrypt.compare(password, this.hashedPassword);
   return result;
 };
 
-UserSchema.methods.findByUsername = function (username: any) {
+UserSchema.statics.findByUsername = function (username: any) {
   return this.findOne({ username });
 };
 
@@ -31,6 +30,7 @@ UserSchema.methods.serialize = function () {
 
 UserSchema.methods.generateToken = function () {
   const token = jwt.sign(
+    //첫 번째 파라미터는 토큰값
     {
       _id: this.id,
       username: this.username,
@@ -41,6 +41,7 @@ UserSchema.methods.generateToken = function () {
       expiresIn: '7d',
     },
   );
+
   return token;
 };
 

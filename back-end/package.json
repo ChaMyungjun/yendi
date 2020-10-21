@@ -32,8 +32,8 @@
     "ytsr": "^1.0.1"
   },
   "scripts": {
-    "start": "ts-node -r dotenv/config src/index.ts",
-    "dev": "ts-node-dev -r dotenv/config src/index.ts"
+    "start": "ts-node -r esm src/index.ts",
+    "dev": "ts-node-dev -r esm src/index.ts"
   },
   "devDependencies": {
     "@types/koa-router": "^7.4.1"
