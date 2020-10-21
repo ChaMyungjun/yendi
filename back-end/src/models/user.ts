@@ -22,7 +22,7 @@ UserSchema.statics.findByUsername = function (username: any) {
   return this.findOne({ username });
 };
 
-UserSchema.methods.serialize = function () {
+UserSchema.methods.serialize = function () {s
   const data = this.toJSON();
   delete data.hashedPassword;
   return data;

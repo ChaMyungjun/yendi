@@ -18,7 +18,7 @@ const jsonMiddleware = async (ctx: any, next: any) => {
     const now = Math.floor(Date.now() / 1000);
     if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
       const user = await User.findById(decoded._id);
-      const token = user.generateToken();
+      const token = User.generateToken();
       ctx.cookies.set('access_token', token, {
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7일 연장
         httpOnly: true,
