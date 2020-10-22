@@ -34,7 +34,7 @@ export const register = async (ctx: any) => {
  
 
     try {
-      // username  이 이미 존재하는지 확인
+      // username 존재 확인
       const exists = await User.findByUsername(username);
       if (exists) {
         ctx.status = 409; // Conflict
