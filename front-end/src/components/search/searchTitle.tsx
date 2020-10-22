@@ -9,6 +9,7 @@ import {
   Theme,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import styles from '../common/styles/searchTitle.module.css'
 
 interface TextProps {
   handleTitleChange: any;
@@ -42,9 +43,8 @@ class searchTitle extends React.Component<TextProps, TextState> {
 
   render() {
     const { store }: any = this.props;
-    const classes: any = this.props;
     return (
-      <div className={classes.form}>
+      <div className={styles.form}>
         <Grid>
           <div>
             <TextField

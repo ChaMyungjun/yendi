@@ -1,4 +1,4 @@
-require('dotenv').config();
+import 'dotenv/config'
 import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
@@ -12,7 +12,7 @@ const app = new Koa();
 const router = new Router();
 
 mongoose
-  .connect('mongodb://localhost:27017/yendi', {
+  .connect(`${MONGO_URI}`, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,

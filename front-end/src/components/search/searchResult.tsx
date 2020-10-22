@@ -20,7 +20,7 @@ import smapleImg from "../../test/img/sample.png";
 //   root: {
 //     maxWidth: 345,
 //   },
-//   media: {
+//   media: {s
 //     height: 140,
 //   },
 // });
@@ -30,7 +30,6 @@ import smapleImg from "../../test/img/sample.png";
 class searchResult extends React.Component {
   render() {
     const { store }: any = this.props;
-    const classes: any = this.props;
     return (
       <div>
         {toJS(store).searching.data.thumb.map((res: any, index: any) => {

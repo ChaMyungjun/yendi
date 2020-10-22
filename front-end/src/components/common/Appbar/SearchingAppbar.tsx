@@ -48,7 +48,7 @@ class SearchingAppbar extends React.Component<TextProps, TextState> {
               <Link to="/" className={styles.title}>
                 Youtube Downloader
               </Link>
-              {/* <SearchTitle handleTitleChange={this.props.handleChangeSearch} /> */}
+              <SearchTitle handleTitleChange={this.props.handleChangeSearch} />
             </Toolbar>
           </AppBar>
         </div>

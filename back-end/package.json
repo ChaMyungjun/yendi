@@ -17,6 +17,7 @@
     "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "eslint-config-prettier": "^6.11.0",
+    "esm": "^3.2.25",
     "firebase": "^7.24.0",
     "joi": "^17.2.1",
     "jsonwebtoken": "^8.5.1",
