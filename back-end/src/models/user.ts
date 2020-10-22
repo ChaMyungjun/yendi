@@ -1,48 +1,48 @@
-import mongoose, { Schema } from 'mongoose';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+// import mongoose, { Schema } from 'mongoose';
+// import bcrypt from 'bcrypt';
+// import jwt from 'jsonwebtoken';
 
-const UserSchema = new Schema({
-  username: String,
-  nickname: String,
-  hashedPassword: String,
-});
+// const UserSchema = new Schema({
+//   username: String,
+//   nickname: String,
+//   hashedPassword: String,
+// });
 
-UserSchema.methods.setPassword = async function(password: any) {
-  const hash = await bcrypt.hash(password, 10);
-  this.hashedPassword = hash;
-};
+// UserSchema.methods.setPassword = async function(password: any) {
+//   const hash = await bcrypt.hash(password, 10);
+//   this.hashedPassword = hash;
+// };
 
-UserSchema.methods.checkPassword = async function(password: any) {
-  const result = await bcrypt.compare(password, this.hashedPassword);
-  return result;
-};
+// UserSchema.methods.checkPassword = async function(password: any) {
+//   const result = await bcrypt.compare(password, this.hashedPassword);
+//   return result;
+// };
 
-UserSchema.methods.serialize = function() {
-  const data = this.toJSON();
-  delete data.hashedPassword;
-  return data;
-};
+// UserSchema.methods.serialize = function() {
+//   const data = this.toJSON();
+//   delete data.hashedPassword;
+//   return data;
+// };
 
-UserSchema.methods.generateToken = function() {
-  const token = jwt.sign(
-    {
-      _id: this.id,
-      username: this.username,
-    },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: '7d', // 7일동안 유효함
-    },
-  );
-  return token;
-};
+// UserSchema.methods.generateToken = function() {
+//   const token = jwt.sign(
+//     {
+//       _id: this.id,
+//       username: this.username,
+//     },
+//     process.env.JWT_SECRET,
+//     {
+//       expiresIn: '7d', // 7일동안 유효함
+//     },
+//   );
+//   return token;
+// };
 
-UserSchema.statics.findByUsername = function(username: any) {
-  return this.findOne({ username });
-};
+// UserSchema.statics.findByUsername = function(username: any) {
+//   return this.findOne({ username });
+// };
 
 
 
-const User = mongoose.model('User', UserSchema);
-export default User;
+// const User = mongoose.model('User', UserSchema);
+// export default User;
