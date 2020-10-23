@@ -11,7 +11,7 @@ export const search = async (ctx: any, next: any) => {
   };
   const search_result = null;
 
-  let { context } = ctx.request.query;
+  let { context } = ctx.params;
 
   console.log(context);
 
