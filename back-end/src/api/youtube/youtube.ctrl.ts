@@ -10,10 +10,11 @@ export const search = async (ctx: any, next: any) => {
     descrip: [],
   };
 
-  const { context } = ctx.params  ;
+  let { context } = ctx.request.query;
+
+  console.log(context);
 
   if (!context) return (ctx.body = 'Empty Value');
-
   await ytsr
     .getFilters(context)
     .then(async (filters: any) => {
@@ -34,7 +35,6 @@ export const search = async (ctx: any, next: any) => {
     .catch((err: any) => {
       console.error(err);
     });
-
   console.log(result);
 
   ctx.body = result;

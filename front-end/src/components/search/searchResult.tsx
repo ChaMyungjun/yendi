@@ -40,6 +40,7 @@ class searchResult extends React.Component {
                 justifyContent: "center",
                 marginRight: "10px",
                 marginLeft: "10px",
+                marginTop: "20rem",
               }}
             >
               <Card style={{ width: 345 }} variant="elevation">
