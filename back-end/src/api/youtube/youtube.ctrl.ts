@@ -9,36 +9,49 @@ export const search = async (ctx: any, next: any) => {
     thumb: [],
     descrip: [],
   };
+  const search_result = null;
 
   let { context } = ctx.request.query;
 
   console.log(context);
 
-  if (!context) return (ctx.body = 'Empty Value');
-  await ytsr
-    .getFilters(context)
-    .then(async (filters: any) => {
+  if (!context) {
+    return null;
+  } else {
+    // const data = await ytsr
+    //   .getFilters(context)
+    //   .then(async (filters: any) => {
+    //     const options = {
+    //       limit: 5,
+    //       nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
+    //         .ref,
+    //     };
+    //     const res: any = await ytsr(null, options);
+    //     console.log(res);
+    //     for (const keys in res.items) {
+    //       (<any>result.title)[keys] = res.items[keys].title;
+    //       (<any>result.link)[keys] = res.items[keys].link;
+    //       (<any>result.thumb)[keys] = res.items[keys].thumbnail;
+    //       (<any>result.descrip)[keys] = res.items[keys].description;
+    //     }
+    //   })
+    //   .catch((err: any) => {
+    //     console.error(err);
+    //   });
+
+    const data = ytsr.getFilters(context).then(async (filters: any) => {
       const options = {
         limit: 5,
-        nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
-          .ref,
+        nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video'),
       };
-      const res: any = await ytsr(null, options);
-      console.log(res);
-      for (const keys in res.items) {
-        (<any>result.title)[keys] = res.items[keys].title;
-        (<any>result.link)[keys] = res.items[keys].link;
-        (<any>result.thumb)[keys] = res.items[keys].thumbnail;
-        (<any>result.descrip)[keys] = res.items[keys].description;
-      }
-    })
-    .catch((err: any) => {
-      console.error(err);
+      const result = await ytsr(null, options)
     });
-  console.log(result);
+    //console.log(result);
+    console.log(data);
 
-  ctx.body = result;
-  return result;
+    ctx.body = result;
+    return result;
+  }
 };
 
 export const mp3 = async (ctx: any, next: any) => {
