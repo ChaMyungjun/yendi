@@ -59,14 +59,12 @@ export const search = async (ctx: any, next: any) => {
       ytsr
         .getFilters(context)
         .then(async (filters: any) => {
-          const filter = filters.get('Type').find((o: any) => o.name === 'Video')
-          const filter2 = await ytsr.getFilters(filter.ref)
-          const filters2 = filter2.get('Duration').find((o: any) => o.name.startsWith('Short'))
-          const options = {
+          const result = await ytsr(null, {
             limit: 5,
-            nextpageRef: filters2.ref
-          }
-          const result = await ytsr(null, options);
+            nextpageRef: filters
+              .get('Type')
+              .find((o: any) => o.name === 'Video').ref,
+          });
           console.log(result);
         })
         .catch((err: any) => {
