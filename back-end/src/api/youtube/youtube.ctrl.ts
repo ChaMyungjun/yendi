@@ -3,51 +3,78 @@ import ytsr from 'ytsr';
 import fs from 'fs';
 
 export const search = async (ctx: any, next: any) => {
-  const result = {
-    title: [],
-    link: [],
-    thumb: [],
-    descrip: [],
-  };
-  let search_result = null;
+  // const result = {
+  //   title: [],
+  //   link: [],
+  //   thumb: [],
+  //   descrip: [],
+  // };
+  // let search_result = null;
 
-  let { context } = ctx.params;
+  // let { context } = ctx.params;
 
-  console.log(context);
+  // console.log(context);
 
-  if (!context) {
-    return null;
-  } else {
-    // const data = await ytsr
-    //   .getFilters(context)
-    //   .then(async (filters: any) => {
-    //     const options = {
-    //       limit: 5,
-    //       nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
-    //         .ref,
-    //     };
-    //     const res: any = await ytsr(null, options);
-    //     console.log(res);
-    //     for (const keys in res.items) {
-    //       (<any>result.title)[keys] = res.items[keys].title;
-    //       (<any>result.link)[keys] = res.items[keys].link;
-    //       (<any>result.thumb)[keys] = res.items[keys].thumbnail;
-    //       (<any>result.descrip)[keys] = res.items[keys].description;
-    //     }
-    //   })
-    //   .catch((err: any) => {
-    //     console.error(err);
-    //   });
+  // if (!context) {
+  //   return null;
+  // } else {
+  //   // const data = await ytsr
+  //   //   .getFilters(context)
+  //   //   .then(async (filters: any) => {
+  //   //     const options = {
+  //   //       limit: 5,
+  //   //       nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
+  //   //         .ref,
+  //   //     };
+  //   //     const res: any = await ytsr(null, options);
+  //   //     console.log(res);
+  //   //     for (const keys in res.items) {
+  //   //       (<any>result.title)[keys] = res.items[keys].title;
+  //   //       (<any>result.link)[keys] = res.items[keys].link;
+  //   //       (<any>result.thumb)[keys] = res.items[keys].thumbnail;
+  //   //       (<any>result.descrip)[keys] = res.items[keys].description;
+  //   //     }
+  //   //   })
+  //   //   .catch((err: any) => {
+  //   //     console.error(err);
+  //   //   });
 
-    await ytsr.getFilters(context).then(async (filters: any) => {
-      const options = {
-        limit: 5,
-        nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video'),
-      };
-      search_result = await ytsr(null, options);
-      console.log(result);
-    });
-    return search_result;
+  //   await ytsr.getFilters(context).then(async (filters: any) => {
+  //     const options = {
+  //       limit: 5,
+  //       nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video'),
+  //     };
+  //     search_result = await ytsr(null, options);
+  //     console.log(result);
+  //   });
+  //   return search_result;
+  // }
+
+  try {
+    let { context } = ctx.params;
+    if (!context) {
+      return null;
+    } else {
+      console.log(context);
+      ytsr
+        .getFilters(context)
+        .then(async (filters: any) => {
+          const filter = filters.get('Type').find((o: any) => o.name === 'Video')
+          const filter2 = await ytsr.getFilters(filter.ref)
+          const filters2 = filter2.get('Duration').find((o: any) => o.name.startsWith('Short'))
+          const options = {
+            limit: 5,
+            nextpageRef: filters2.ref
+          }
+          const result = await ytsr(null, options);
+          console.log(result);
+        })
+        .catch((err: any) => {
+          console.error(err);
+        });
+    }
+  } catch (e: any) {
+    console.log(e);
   }
 };
 
