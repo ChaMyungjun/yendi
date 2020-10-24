@@ -9,14 +9,14 @@ export const search = async (ctx: any, next: any) => {
     thumb: [],
     descrip: [],
   };
-  const search_result = null;
 
   let { context } = ctx.params;
 
   console.log(context);
 
+
   if (!context) {
-    return null;
+    return (ctx.body = 'Empty value');
   } else {
     // const data = await ytsr
     //   .getFilters(context)
@@ -39,18 +39,20 @@ export const search = async (ctx: any, next: any) => {
     //     console.error(err);
     //   });
 
-    const data = ytsr.getFilters(context).then(async (filters: any) => {
-      const options = {
-        limit: 5,
-        nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video'),
-      };
-      const result = await ytsr(null, options)
-    });
-    //console.log(result);
-    console.log(data);
-
-    ctx.body = result;
-    return result;
+    ytsr
+      .getFilters(context)
+      .then(async (filters: any) => {
+        const options = {
+          limit: 5,
+          nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video'),
+        };
+        const result = await ytsr(null, options);
+        console.log(result);
+        return result;
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
   }
 };
 
