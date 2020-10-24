@@ -9,7 +9,7 @@ export const search = async (ctx: any, next: any) => {
     thumb: [],
     descrip: [],
   };
-  const search_result = null;
+  let search_result = null;
 
   let { context } = ctx.params;
 
@@ -39,18 +39,15 @@ export const search = async (ctx: any, next: any) => {
     //     console.error(err);
     //   });
 
-    const data = ytsr.getFilters(context).then(async (filters: any) => {
+    await ytsr.getFilters(context).then(async (filters: any) => {
       const options = {
         limit: 5,
         nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video'),
       };
-      const result = await ytsr(null, options)
+      search_result = await ytsr(null, options);
+      console.log(result);
     });
-    //console.log(result);
-    console.log(data);
-
-    ctx.body = result;
-    return result;
+    return search_result;
   }
 };
 
