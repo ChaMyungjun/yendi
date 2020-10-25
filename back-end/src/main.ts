@@ -8,6 +8,8 @@ import api from './api';
 
 const { PORT, MONGO_URI } = process.env;
 
+console.log(MONGO_URI)
+
 const app = new Koa();
 const router = new Router();
 
