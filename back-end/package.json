@@ -30,7 +30,7 @@
     "typescript": "^4.0.2",
     "ytdl": "^1.3.5",
     "ytdl-core": "^3.3.0",
-    "ytsr": "^1.0.1"
+    "ytsr": "^1.0.4"
   },
   "scripts": {
     "start": "ts-node -r esm src/index.ts",

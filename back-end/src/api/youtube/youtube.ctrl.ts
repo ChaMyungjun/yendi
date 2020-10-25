@@ -56,7 +56,7 @@ export const search = async (ctx: any, next: any) => {
       return null;
     } else {
       console.log(context);
-      ytsr
+      const data = await ytsr
         .getFilters(context)
         .then(async (filters: any) => {
           const result = await ytsr(null, {
@@ -70,6 +70,7 @@ export const search = async (ctx: any, next: any) => {
         .catch((err: any) => {
           console.error(err);
         });
+        console.log(data)
     }
   } catch (e: any) {
     console.log(e);
