@@ -2973,10 +2973,9 @@ ytdl@^1.3.5:
     streamspeed "^2.0.0"
     ytdl-core "^3.2.0"
 
-ytsr@^1.0.4:
+"ytsr@git://github.com/timeforaninja/node-ytsr.git#wip-api-adjustments":
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/ytsr/-/ytsr-1.0.4.tgz#8bb13f47a5919c2900388fe60c14aee3078969c5"
-  integrity sha512-wI58LREviYnlsCgB0R+NC3kqsbQpH/C42shbAaq1tlAZN2zBqr2JONE+eGimygpU/fdiJSB9XLFaXe6AgCG5Uw==
+  resolved "git://github.com/timeforaninja/node-ytsr.git#11eec15400b2794f524013da8d2eb366600cf503"
   dependencies:
     html-entities "^1.3.1"
     miniget "^2.0.1"

@@ -31,7 +31,7 @@
     "youtube-search": "^1.1.4",
     "ytdl": "^1.3.5",
     "ytdl-core": "^3.3.0",
-    "ytsr": "^1.0.4"
+    "ytsr": "git://github.com/timeforaninja/node-ytsr.git#wip-api-adjustments"
   },
   "scripts": {
     "start": "ts-node -r esm src/index.ts",
