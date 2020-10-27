@@ -57,7 +57,7 @@ class searchResult extends React.Component {
                       {`${toJS(store).searching.data.title[index]}`}
                     </Typography>
                     <Typography
-                      variant="body2"
+                      variant="body1"
                       color="textSecondary"
                       component="p"
                     >
