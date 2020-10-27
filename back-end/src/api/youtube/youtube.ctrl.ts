@@ -89,7 +89,7 @@ export const mp3 = async (ctx: any, next: any) => {
       ctx.set('Context-Disposition', 'attachment; filename="video.mp3"');
 
       ytdl(URL, {
-        filter: (format) => format.container === 'mp4',
+        filter: (format: any) => format.container === 'mp4',
         quality: 'highestaudio',
       }).pipe(fs.createWriteStream('audio.mp3'));
 
@@ -115,7 +115,7 @@ export const mp4 = async (ctx: any, next: any) => {
       ctx.set('Content-Disposition', 'attachment; filename="video.mp4"');
 
       ytdl(URL, {
-        filter: (format) => format.container === 'mp4',
+        filter: (format: any) => format.container === 'mp4',
         quality: 'highest',
       }).pipe(fs.createWriteStream('video.mp4'));
 
