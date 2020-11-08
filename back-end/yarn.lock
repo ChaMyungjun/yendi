@@ -528,7 +528,7 @@
     "@types/mongodb" "*"
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^14.10.1":
+"@types/node@*":
   version "14.10.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.10.1.tgz#cc323bad8e8a533d4822f45ce4e5326f36e42177"
   integrity sha512-aYNbO+FZ/3KGeQCEkNhHFRIzBOUgc7QvcVNKXbfnhDkSfwUv91JsQQa10rDgKSTSLkXZ1UIyPe4FJJNVgw1xWQ==
@@ -542,6 +542,11 @@
   version "13.13.26"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.26.tgz#09b8326828d46b174d29086cdb6dcd2d0dcf67a3"
   integrity sha512-+48LLqolaKj/WnIY1crfLseaGQMIDISBy3PTXVOZ7w/PBaRUv+H8t94++atzfoBAvorbUYz6Xq9vh1fHrg33ig==
+
+"@types/node@^14.14.6":
+  version "14.14.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.6.tgz#146d3da57b3c636cc0d1769396ce1cfa8991147f"
+  integrity sha512-6QlRuqsQ/Ox/aJEQWBEJG7A9+u7oSYl3mem/K8IzxXG/kAGbV1YPD9Bg9Zw3vyxC/YP+zONKwy8hGkSt1jxFMw==
 
 "@types/qs@*":
   version "6.9.4"
@@ -2991,9 +2996,10 @@ ytdl@^1.3.5:
     streamspeed "^2.0.0"
     ytdl-core "^3.2.0"
 
-"ytsr@git://github.com/timeforaninja/node-ytsr.git#wip-api-adjustments":
+ytsr@^1.0.4:
   version "1.0.4"
-  resolved "git://github.com/timeforaninja/node-ytsr.git#11eec15400b2794f524013da8d2eb366600cf503"
+  resolved "https://registry.yarnpkg.com/ytsr/-/ytsr-1.0.4.tgz#8bb13f47a5919c2900388fe60c14aee3078969c5"
+  integrity sha512-wI58LREviYnlsCgB0R+NC3kqsbQpH/C42shbAaq1tlAZN2zBqr2JONE+eGimygpU/fdiJSB9XLFaXe6AgCG5Uw==
   dependencies:
     html-entities "^1.3.1"
     miniget "^2.0.1"
